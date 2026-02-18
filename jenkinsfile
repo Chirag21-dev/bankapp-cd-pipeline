@@ -23,5 +23,17 @@ pipeline {
                      git branch: 'main', credentialsId: 'github', url: 'https://github.com/Chirag21-dev/bankapp-cd-pipeline.git'
              }
          }
+         stage("Update the Deployment Tags") {
+            steps {
+                dir('Manifests'){
+                    sh """
+                    cat bankapp.yaml
+                    sed -i "s|image: chiragks1/bankappci:.*|image: chiragks1/bankappci:${TAG}|g" bankapp.yaml
+
+                    cat bankapp.yaml
+                """
+                }     
+            }
+         }
     }
 }
