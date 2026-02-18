@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: bankapp
-        image: chiragks1/bankappci:v4
+        image: chiragks1/bankappci:5
         ports:
         - containerPort: 8080
         env:
