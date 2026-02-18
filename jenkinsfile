@@ -35,5 +35,16 @@ pipeline {
                 }     
             }
          }
+         stage("Push the changed deployment file to GitHub") {
+            steps {
+               withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')]) {
+               sh """
+                    git config --global user.name "chirag21-dev"
+                    git config --global user.email "chiragks@gmail.com"
+                    git add Manifests/bankapp.yaml
+                    git commit -m "Updated Deployment Manifest"
+                    git push https://github.com/Chirag21-dev/bankapp-cd-pipeline.git 
+                """
+}
     }
 }
