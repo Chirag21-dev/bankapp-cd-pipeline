@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+    environment {
+          IMAGE_NAME = "bankappci"
+          //RELEASE = "1.0.0"
+          TAG = "${env.BUILD_NUMBER}"
+    }
+
+    /*parameters {
+     password(name: 'PASSWD', defaultValue: '', description: 'Please Enter your Gitlab password or token')
+     string(name: 'IMAGE_TAG', defaultValue: '1', description: 'Please Enter the Image Tag to Deploy?')
+     //choice(name:'environment', choices: ['functional', 'integration', 'regression', 'uat', 'release' ] ,description: 'select where need to deploy')
+    }*/
+
+    stages {
+         stage("Cleanup Workspace") {
+             steps {
+                cleanWs()
+             }
+         }
+         stage("Checkout from SCM") {
+             steps {
+                     git branch: 'main', credentialsId: 'github', url: 'https://github.com/Chirag21-dev/bankapp-cd-pipeline.git'
+             }
+         }
+    }
+}
