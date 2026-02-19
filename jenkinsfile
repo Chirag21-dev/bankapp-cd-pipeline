@@ -61,6 +61,7 @@ pipeline {
                 
             }
         }
+         }
         stage('Deploy ingress manifest') {
             steps {
                 dir('Manifests'){
@@ -77,6 +78,6 @@ pipeline {
     }
 }
 }
-}
+
 
 
