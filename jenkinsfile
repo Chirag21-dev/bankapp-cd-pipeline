@@ -54,7 +54,7 @@ pipeline {
                 dir('Manifests'){
                   script {
                     kubeconfig(credentialsId: 'k8s-token', serverUrl: 'https://3370DF416F397B0970B2CDC7088432E8.yl4.us-east-2.eks.amazonaws.com') {
-                        sh "kubectl apply -f bankapp.yml -n ${KUBE_NAMESPACE}" 
+                        sh "kubectl apply -f bankapp.yaml -n ${KUBE_NAMESPACE}" 
                         sh 'kubectl apply -f database.yaml -n ${KUBE_NAMESPACE}' // Ensure you have the MySQL deployment YAML ready
                     }  
                 }
