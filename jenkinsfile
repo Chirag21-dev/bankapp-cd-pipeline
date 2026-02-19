@@ -61,7 +61,7 @@ pipeline {
                 
             }
         }
-        stage('Deploy MySQL Deployment and Service') {
+        stage('Deploy ingress manifest') {
             steps {
                 dir('Manifests'){
                   script {
