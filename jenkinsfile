@@ -53,7 +53,7 @@ pipeline {
             steps {
                 dir('Manifests'){
                   script {
-                    kubeconfig(credentialsId: 'k8s-token', serverUrl: 'https://7A8BE1C83F7EC8A8C1CDB0232F411BBD.gr7.us-east-1.eks.amazonaws.com') {
+                    kubeconfig(credentialsId: 'k8s-token', serverUrl: 'https://AABAFB6492E434E73142FBF16C8FA2FD.gr7.us-east-1.eks.amazonaws.com') {
                         sh "kubectl apply -f bankapp.yaml -n ${KUBE_NAMESPACE}" 
                         sh 'kubectl apply -f database.yaml -n ${KUBE_NAMESPACE}' // Ensure you have the MySQL deployment YAML ready
                     }  
@@ -62,7 +62,7 @@ pipeline {
             }
         }
          }
-        stage('Deploy ingress manifest') {
+        /*stage('Deploy ingress manifest') {
             steps {
                 dir('Manifests'){
                   script {
@@ -75,7 +75,7 @@ pipeline {
             }
         }
          
-    }
+    }*/
 }
 }
 
