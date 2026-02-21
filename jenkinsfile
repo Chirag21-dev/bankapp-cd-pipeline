@@ -62,7 +62,7 @@ pipeline {
             }
         }
          }
-        /*stage('Deploy ingress manifest') {
+        stage('Deploy ingress manifest') {
             steps {
                 dir('Manifests'){
                   script {
@@ -75,7 +75,7 @@ pipeline {
             }
         }
          
-    }*/
+    }
 }
 }
 
