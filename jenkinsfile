@@ -21,7 +21,7 @@ pipeline {
          }
          stage("Checkout from SCM") {
              steps {
-                     git branch: 'main', credentialsId: 'github', url: 'https://github.com/Chirag21-dev/bankapp-cd-pipeline.git'
+                     git branch: 'main', credentialsId: 'git', url: 'https://github.com/Chirag21-dev/bankapp-cd-pipeline.git'
              }
          }
          stage("Update the Deployment Tags") {
