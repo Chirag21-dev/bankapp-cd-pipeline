@@ -8,7 +8,7 @@ spec:
       namespace: gw-api-nginx
       sectionName: http       # Listener name from Gateway spec
   hostnames:
-    - "ac9265da17ca54f44b5ba208decc9783-805685577.us-east-2.elb.amazonaws.com"
+    - "af006cd626f3e4a95928241520bebdf7-712790669.us-east-1.elb.amazonaws.com"
   rules:                      # Routing rules
     - matches:
         - path:
