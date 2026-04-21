@@ -15,5 +15,5 @@ spec:
             type: PathPrefix  # Match any path starting with /iphone
             value: /
       backendRefs:
-        - name: frontend    # Service to send traffic to
+        - name: bankapp-service    # Service to send traffic to
           port: 80
