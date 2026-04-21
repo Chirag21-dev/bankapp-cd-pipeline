@@ -62,7 +62,7 @@ pipeline {
             }
         }
          }
-        stage('Deploy ingress manifest') {
+       /* stage('Deploy ingress manifest') {
             steps {
                 dir('Manifests'){
                   script {
@@ -75,7 +75,23 @@ pipeline {
             }
         }
          
+    }*/
+       stage('Deploy Gateway api manifest') {
+            steps {
+                dir('Manifests'){
+                  script {
+                    kubeconfig(credentialsId: 'k8s-token', serverUrl: 'https://AABAFB6492E434E73142FBF16C8FA2FD.gr7.us-east-1.eks.amazonaws.com') {
+                        sh "kubectl apply -f Gateway.yaml"
+                        sh "kubectl apply -f Gateway-httproute.yaml"
+                         // Ensure you have the MySQL deployment YAML ready
+                    }  
+                }
+                
+            }
+        }
+         
     }
+
 }
 }
 
