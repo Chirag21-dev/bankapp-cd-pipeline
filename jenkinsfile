@@ -80,9 +80,9 @@ pipeline {
             steps {
                 dir('Manifests'){
                   script {
-                    kubeconfig(credentialsId: 'k8s-token', serverUrl: 'https://AABAFB6492E434E73142FBF16C8FA2FD.gr7.us-east-1.eks.amazonaws.com') {
-                        sh "kubectl apply -f Gateway.yaml"
-                        sh "kubectl apply -f Gateway-httproute.yaml"
+                    kubeconfig(credentialsId: 'k8s-token', serverUrl: 'https://190FDC32D346829E62FCF02FD9019525.gr7.us-east-1.eks.amazonaws.com') {
+                        sh "kubectl apply -f Gateway.yaml -n "
+                        sh "kubectl apply -f Gateway-httproute.yaml -n "
                          // Ensure you have the MySQL deployment YAML ready
                     }  
                 }
